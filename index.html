@@ -291,7 +291,7 @@
 
         // 使用示例
         fetchRequest('https://lzh329279263.cn/site/count')
-            .then(data => document.getElementById("site_count_value").value=data.count)
+            .then(data => document.getElementById("site_count_value").textContent = data.count)
             .catch(error => console.error('Error:', error));
 
 
