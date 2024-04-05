@@ -1,13 +1,11 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
-    <title>不才才 bucaicai</title>
-    <meta name="description" content="95后青年，后端开发者，略懂前端, 学生，实习，缺乏社会的毒打">
-    <meta name="keywords" content="Java,Spring,个人博客，微信小程序，博客">
+    <title>清秋 | lzh</title>
     <meta name="format-detection" content="telephone=no">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="static/css/index.css">
@@ -49,8 +47,8 @@
                                 <img class="avatar-img"
                                     src="https://cdn.jsdelivr.net/gh/laoxuai/assert/images/20200125221102.png"
                                     alt="avatar">
-                                <div class="author-info__name">Bucaicai</div>
-                                <div class="author-info__description">95后青年，后端开发者，略懂前端, <s>学生，实习</s>，缺乏社会的毒打</div>
+                                <div class="author-info__name">清秋</div>
+                                <div class="author-info__description">后端开发者，略懂前端, <s>学生，实习</s>，经历社会5年的毒打</div>
                             </div>
                             <div class="card-info-social-icons is-center">
                                 <a class="social-icon" href="https://github.com/laoxuai" target="_blank">
@@ -87,12 +85,8 @@
                             </div>
                             <div class="webinfo">
                                 <div class="webinfo-item">
-                                    <div class="webinfo-site-uv-name">本站访客数 :</div>
-                                    <div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div>
-                                </div>
-                                <div class="webinfo-item">
                                     <div class="webinfo-site-name">本站总访问量 :</div>
-                                    <div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div>
+                                    <div class="webinfo-site-pv-count" id="site_count_value"></div>
                                 </div>
                             </div>
                         </div>
@@ -100,11 +94,6 @@
                 </div>
                 <article id="page">
                     <div class="article-container">
-                        <h2>音乐</h2>
-                        <meting-js auto="https://y.qq.com/n/yqq/playlist/7713574197.html">
-                        </meting-js>
-                        <hr>
-
                         <h2>技能</h2>
                         <div class="skillbox">
                             <div class="skillbar">
@@ -151,11 +140,22 @@
                             </div>
                             <div class="skillbar">
                                 <div class="skillbar-title"
-                                    style="background: linear-gradient(to right, #FFEB3B 0%, #FFF176 100%); width: 75%">
-                                    <span>数据结构与算法</span>
+                                     style="background: linear-gradient(to right, #4CAF50 0%, #81C784 100%); width: 60%">
+                                    <span>Ebean</span>
                                 </div>
-                                <div class="skill-bar-percent">75%</div>
+                                <div class="skill-bar-percent">60%</div>
                             </div>
+                        </div>
+
+                        <hr>
+                        <h2>导航</h2>
+                        <div class="tool">
+                            <a href="javascript:void(0);" onclick="generateAndRedirect('guest');">和AI对话</a><br>
+                            <a href="https://lzh329279263.cn/localChats" target="_blank">传文件或者消息</a><br>
+                            <a href="https://lzh329279263.cn/localChats" target="_blank">传文件或者消息</a><br>
+                            <a href="https://lzh329279263.cn/firework" target="_blank">烟花</a><br>
+                            <a href="https://lzh329279263.cn/love" target="_blank">爱心</a><br>
+                            <a href="https://lzh329279263.cn/axu" target="_blank">收藏夹</a><br>
                         </div>
 
                         <hr>
@@ -178,10 +178,11 @@
         </main>
         <footer id="footer">
             <div id="footer-wrap">
-                <div class="copyright">&copy;2019 - 2021 BY Bucaicai</div>
+                <div class="copyright">&copy;2021 - 2024 BY autumn</div>
             </div>
         </footer>
     </div>
+    <script src="static/js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -274,6 +275,27 @@
                 }, 2000);
             }
         });
+        // 发送 GET 请求
+        function fetchRequest(url, options = {}) {
+            return fetch(url, options)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json(); // 可以根据需要使用 response.text() 或其他方法
+                })
+                .catch(error => {
+                    console.error('There has been a problem with your fetch operation:', error);
+                });
+        }
+
+        // 使用示例
+        fetchRequest('https://lzh329279263.cn/site/count')
+            .then(data => document.getElementById("site_count_value").value=data.count)
+            .catch(error => console.error('Error:', error));
+
+
+
     </script>
 </body>
 
